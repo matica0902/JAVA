@@ -1,0 +1,31 @@
+package readfile01;
+
+public class Book {
+	
+
+	     String memberid;
+	     String action;
+	     Integer item;
+	     String name;
+	     Integer quality;
+	     Integer price;
+	     String cate;
+	     
+	     
+	      Book(String setdata[]){
+	          this.memberid=setdata[0];
+	          this.action=setdata[1];
+	          this.item=Integer.parseInt(setdata[2]);
+	          this.name=setdata[3];
+	          this.quality=Integer.parseInt(setdata[4]);
+	          this.price=Integer.parseInt(setdata[5]);
+	          this.cate=setdata[6];
+	     }
+	    @Override
+	    public String toString() {
+	        // TODO Auto-generated method stub
+	         
+	         
+	        return memberid+"\t"+action+"\t"+item+"\t"+name+"\t"+quality+"\t"+price+"\t"+cate;
+	    }
+}
