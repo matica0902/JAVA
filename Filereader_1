@@ -1,0 +1,24 @@
+	//* Read data from file 
+	//Compare_A Standard skill
+	
+	while ((line = br.readLine()) != null) {
+			String setdata[] = line.split("\\s*,\\s*");
+			if (setdata.length == 7)
+				books.add(new Book(setdata));
+		}
+		
+	//Compare_B Normal skill
+	bbw = br.readLine();
+	while (bbw != null) {
+			String setdata[] = bbw.split("\\s*,\\s*");
+			int size = setdata.length;
+			if (size == 7) {
+				Book book1 = new Book(setdata);
+				i = i + 1;
+			}
+	bbw = br.readLine();
+	
+	//*conclusion seem has no different 
+	   but must add "bbw = br.readLine();" two times;
+		
+		
