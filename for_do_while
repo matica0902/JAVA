@@ -1,0 +1,38 @@
+//*for do while  
+//Compare_A  Use for & if
+
+//  Logic A is id is always the same if change then do something
+for (Book book : books) {                            
+			if (id == null)                                
+				id = book.getMemberid();                    
+			else if (!id.equals(book.getMemberid())) {     //出現不同時才跳進去做事
+				write(null, id, list);
+				id = book.getMemberid();
+				list = new ArrayList<String>();
+			}
+			list.add(book.getName());                      //正常一進迴圈就要做的事
+		}
+		
+//Compare_B  Use for & do-while
+
+//  Logic  B is id is must get index i and i+1 to compare it is neednt work to logic A
+for (int j = 0; j < 8; j++) {
+			// do “ i ” time
+			V = ""; // V=lista.get(j) is wrong;
+			if (lista.get(j).equals(lista.get(j + 1)) && j < 6) {
+				int c = j;
+				System.out.print("INTO IF of j=j+1 and j=" + j + " ");
+				Book bi = listv.get(c);
+				V = bi.memberid + "," + bi.name + ",";
+				do {
+					Book com1 = listv.get(c);
+					Book com2 = listv.get(c + 1);
+					String s1 = com1.name;
+					String s2 = com2.name;
+					V = V + s2 + ",";
+					c++;
+					j++;
+					// dangerous often check out of range
+				} while (lista.get(c).equals(lista.get(c + 1)) && c <= 9);
+				la++;
+				listv1.add(V);
