@@ -1,5 +1,5 @@
 //*for do while  
-//Compare_A  Use for & if
+//Compare_A  Use for & if  某情況是可以取代如下 Compare_B  for +do_while 的邏輯非常特別
 
 //  Logic A is id is always the same if change then do something
 for (Book book : books) {                            
@@ -36,3 +36,26 @@ for (int j = 0; j < 8; j++) {
 				} while (lista.get(c).equals(lista.get(c + 1)) && c <= 9);
 				la++;
 				listv1.add(V);
+
+
+//Compare_Ｃ  Use for & do-while  可以取代 Compare_B 去除 do  直接進入用if 判斷即可～～
+
+for (Book aa:listv) {
+			                                              
+			 V = V + aa.name + ",";                                   
+	                                                      	
+		 if (aa.memberid.equals(id) ) {
+			
+			}                           	
+				else {                                          
+				                                                    	     
+				  listv1.add(V);                             		
+				  System.out.print(id+listv1 + "\n");
+				  id = aa.memberid;
+				  listv1 = new Vector<String>();
+				  V="";
+				 
+				}
+			                                     	
+
+			}
