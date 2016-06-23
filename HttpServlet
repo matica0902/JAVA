@@ -41,5 +41,23 @@ successView.forward(req, res);
     <img id="titleimg" src="<%=request.getContextPath()%>/Prohtml/pic/Place/2.jpg" >
     <a href="<%=request.getContextPath()%>/shop/Shopping.do?action=CLASS&pdcNo=4"> </a>
     <td> <img width="100" height="66" src="<%=request.getContextPath()%> /Shoptest?pkid=${newsVO.newsNo}"></td>
+    
+## Simple print the result use jsp
+1. get the parameter from client
+  <%   
+  String method =requset.getMethod();
+  Stirng ip =request.RemoteAdd()
+  String path =rwquestServletPath();
+  stirng contentPath= request.getContentPath();
+  %>
+2.put it to the pageview not into the VO or database
+  <body>
+  <h3><%=methid %> </h3>
+  <h3><%=ip %> </h3>
+  <h3><%=path%> </h3>
+  <h3><%=contentPath %> </h3>
+  </body>
+3.Put the Result to database
+
   
   
