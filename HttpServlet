@@ -25,3 +25,18 @@ String str = req.getParameter("mesno")
 --step 4.forward(req, res);
 RequestDispatcher successView = req.getRequestDispatcher(url);
 successView.forward(req, res);
+
+
+##Request from client form get & post
+1.Post 
+     <FORM METHOD="post" ACTION="news.do" >
+        <b>輸入消息編號 (如10):</b>
+        <input type="text" name="newsno">
+        <input type="submit" value="送出">
+        <input type="hidden" name="action" value="getOne_For_Display">
+    </FORM>
+    
+2.Get
+    <li><a href="<%=request.getContextPath()%>/shop/main.jsp">購物中心</a></li>
+  
+  
