@@ -1,0 +1,27 @@
+// doPost(HttpServletRequest req, HttpServletResponse res)
+doFilter(ServletRequest, ServletResponse, FilterChain)
+ShoppingServlet
+PdorderServlet
+
+1.request  2.page  3.session 4.
+
+// IF WE call A Servlet it work process 
+--step 1.construct a class
+public class MesServlet extends HttpServlet {
+
+public void doPost(HttpServletRequest req, HttpServletResponse res) 
+  //do step 2//
+}
+
+--step 2.recieve the parameter from action of post method
+
+if ("getOne_For_Display".equals(action)) { //do step 3//}
+
+--step 3.do something like set  get etc.
+
+req.setAttribute("mesVO", mesVO); 
+String str = req.getParameter("mesno")
+
+--step 4.forward(req, res);
+RequestDispatcher successView = req.getRequestDispatcher(url);
+successView.forward(req, res);
