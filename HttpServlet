@@ -17,7 +17,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse res)
 
 if ("getOne_For_Display".equals(action)) { //do step 3//}
 
---step 3.do something like set  get etc.
+--step 3.do something like setAttribute&getAttribute etc.
 
 req.setAttribute("mesVO", mesVO); 
 String str = req.getParameter("mesno")
@@ -37,6 +37,9 @@ successView.forward(req, res);
     </FORM>
     
 2.Get
-    <li><a href="<%=request.getContextPath()%>/shop/main.jsp">購物中心</a></li>
+    <li> <a href="<%=request.getContextPath()%>/shop/main.jsp">購物中心</a> </li>
+    <img id="titleimg" src="<%=request.getContextPath()%>/Prohtml/pic/Place/2.jpg" >
+    <a href="<%=request.getContextPath()%>/shop/Shopping.do?action=CLASS&pdcNo=4"> </a>
+    <td> <img width="100" height="66" src="<%=request.getContextPath()%> /Shoptest?pkid=${newsVO.newsNo}"></td>
   
   
