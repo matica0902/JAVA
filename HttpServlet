@@ -3,7 +3,7 @@ doFilter(ServletRequest, ServletResponse, FilterChain)
 ShoppingServlet
 PdorderServlet
 
-1.request  2.page  3.session 4.
+1.request  2.page  3.session 4.application
 
 // IF WE call A Servlet it work process 
 --step 1.construct a class
@@ -42,7 +42,8 @@ successView.forward(req, res);
     <a href="<%=request.getContextPath()%>/shop/Shopping.do?action=CLASS&pdcNo=4"> </a>
     <td> <img width="100" height="66" src="<%=request.getContextPath()%> /Shoptest?pkid=${newsVO.newsNo}"></td>
     
-## Simple print the result use jsp
+## Simple print the result use jsp 
+
 1. get the parameter from client
   <%   
   String method =requset.getMethod();
@@ -58,6 +59,18 @@ successView.forward(req, res);
   <h3><%=contentPath %> </h3>
   </body>
 3.Put the Result to database
+
+## 9 object & 4 view range in jsp
+9 object
+-pagecontent//request//response//sesssion//application//config//out//page//exception
+
+4 range 
+1.page
+2.request
+3.session
+4.application
+
+
 
   
   
