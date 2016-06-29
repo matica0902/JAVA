@@ -1,5 +1,5 @@
 
-ARRRYLIST
+##ArrayList
 import xxx.Book2;
 
 List list=new List();
@@ -9,8 +9,13 @@ Book2 bk=new Book2();
 list.add(bk);
 list.get(1);//IT IS WRONG BECAUSE IT IS BEGIN AT "0";
 
+##Vector
 //system.out.print() by index
 BUT METHOD IS DIFFERENT FROM VECTOR
 Vector listv=new Vector();
 Vector<Book> listv = new Vector<Book>();
 listv.elementAt(i);
+
+##compare prnit list vs list.get() result ; it is different from that list have [] but list.get() dont have
+System.out.print(id+list+"----"+listv+"\n");
+System.out.print(id+list.get(0)+"----"+listv.elementAt(0)+"\n");
