@@ -1,0 +1,9 @@
+
+import xxx.Book2;
+
+List list=new List();
+List<Book2> books = new ArrayList<Book2>();
+Book2 bk=new Book2();
+//system.out.print() by index
+list.add(bk);
+list.get(1);//IT IS WRONG BECAUSE IT IS BEGIN AT "0";
