@@ -1,0 +1,28 @@
+##USE SimpleDateFormat
+SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+
+##INPUT String A                  
+INPUT A = "Friday, Jun 7, 2013 12:10:56 PM";		
+SET PARAMETER A = "EEEE, MMM dd, yyyy HH:mm:ss a");
+
+##INPUT String B  
+INPUT B = "Friday, Jun 7, 2013 12:10:56";
+SET PARAMETER B = "EEEE, MMM dd, yyyy HH:mm:ss");
+compare String A/B  SET PARAMETER just different in a but if you set one more parameter a in PARAMETER B it get trouble 
+
+
+It is ususally that read date from csv must change it to DATE TYPE
+##String to DATE
+
+  SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+	String daString = "31-08-1982 10:20:56";
+	Date date = sdf.parse(daString);
+	System.out.println(date); //Tue Aug 31 10:20:56 SGT 1982
+	
+	
+## But dont forget delete the first low of file ~~~~~~
+
+transid	cdate	memberid	storeid   <-----this error is always annoyse people
+317	2014/8/5 7:10	1	0
+321	2014/8/5 12:29	1	0
+936	2014/9/13 4:05	1	0
