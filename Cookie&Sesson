@@ -1,0 +1,105 @@
+##COOKIE
+[Life-cycle]
+1.ck.setMaxAge(65536);custom
+2.ck.setMaxAge(0);dead imeditely
+3.ck.setMaxAge(-1);close browser
+
+[Generate]
+1.In Browser:document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+2.In JSP:a.automatic have a original session b.define yourself ==>Cookie ck = new Cookie("namexxx","valueyyy");
+
+[USE]
+1.IN Broswer:Let Var x=document.cookie;Then you can define getCookie(),setCookie(),checkCookie() functons yourself
+2.IN JSP:Maybe must create a array to recieve all cookies
+<%Cookie ck[] = request.getCookies();
+ if( cookies != null ){
+      out.println("<h2> Found Cookies Name and Value</h2>");
+      for (int i = 0; i < cookies.length; i++){
+         cookie = cookies[i];
+         out.print("Name : " + cookie.getName( ) + ",  ");
+         out.print("Value: " + cookie.getValue( )+" <br/>");
+      }
+  }else{
+      out.println("<h2>No cookies founds</h2>");
+  }
+%>
+
+[Id]
+
+[Storage] Cookies are stored in browser-specific files.maybe like that C:\Windows\Cookies;it his first Strengths
+
+[Range]The same browser but can alive longer than session timeout so it exzist till now.it is his second Strengths
+
+##SESSION
+[Life-cycle]:1.SET TIMEOUT IN METHOD  2.SET IN TOMCAT SERVER in web.xml Configuration file.
+1.Use setMaxInactiveInterval(int interval)  
+2.<session-config>
+  <session-timeout>15</session-timeout>
+  </session-config>
+
+[Generate] ##  MUST rely on cookie and cookie-name is JSESSIONID
+
+1.In Browser:USE AJAX XMLHttpRequest method by GET|POST
+var http = new XMLHttpRequest();
+var url = "http://localhost:8081/YB102/Prohtml/session01.jsp";
+http.open("POST", url, true);
+
+2.In JSP:
+a.SESSION generate automaticly when recieve  HttpServletRequest in JSP
+<% String id=session.getId();
+long start=session.getCreationTime();
+long end=session.getLastAccessedTime();
+%>
+
+b.SESSION also can be create by yourself like a cookie  in JSP
+<% HttpSession session = new HttpSession(); %>
+
+3.Using URL Rewriting Instead of Cookies
+when client don't support cookies use URL Rewriting to store the sessionid in URL
+
+[Id]
+1.IT will have Default JSESSIONID
+
+2.Use cookie to cover J cookie with named "SESSIONID"
+<%Cookie cookie = new Cookie ("JSESSIONID", "randomValue");
+cookie.setMaxAge( 0 );
+%>
+
+3.Use resetSessionId() method 
+public static HttpSession resetSessionId(HttpSession session, 
+      HttpServletRequest request) {
+    session.invalidate();
+    session = request.getSession(true);
+    return session;
+} 
+[Storage] 1.Can rely on cookie 2.on Sever when alive
+[Range]The same browser and alive before timeout
+
+##To COMPARE SESSION WITH COOKIE
+1.Session is automatic generate by server and end at a reasonable timeout. 
+2.Session is store at server(session lifecycle) more security than store on browser.
+3.Session hold the same seeionId with "Fix Browser" but differen new windows can inher its father Browser. 
+4.Session can dont rely on cookie if client dont allow.
+5.Session cant load by Browser directly must use XMLHttpRequest or must load in backend script.
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+
