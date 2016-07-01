@@ -1,5 +1,5 @@
 ##MVC PATTERN BY   Oracle<Model>+JSP<View>+Servlet<Control> 
-#Front-end Request 
+#JSP Front-end Request 
     <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/news/news.do">
 		<input type="submit" value="UPDATE">
 		<input type="hidden" name="newsno" value="${newsVO.newsNo}">
@@ -23,7 +23,7 @@ try {
 			}
 		}
 		
-#GET VO 
+#Servlet GET VO 
        NewsService newsSvc = new NewsService();
        NewsVO newsVO =newsSvc.getOneNews(newsno);
        String str = req.getParameter("newsno");
@@ -31,12 +31,12 @@ try {
 #Servlet setAttribute()  
       req.setAttribute("newsVO", newsVO); 
 			
-#Forward 
+#Servlet Forward 
       String url = "/News/listOneNews.jsp";
       RequestDispatcher successView = req.getRequestDispatcher(url); 
       successView.forward(req, res);
 			
-#View  getAttribute()
+#JSP View  getAttribute()
        <%@ page contentType="text/html; charset=UTF-8"%>
        <%@ page import="com.news.model.*"%>
        <%
