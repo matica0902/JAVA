@@ -1,0 +1,62 @@
+##MVC PATTERN BY   Oracle<Model>+JSP<View>+Servlet<Control> 
+#Front-end Request 
+    <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/news/news.do">
+		<input type="submit" value="UPDATE">
+		<input type="hidden" name="newsno" value="${newsVO.newsNo}">
+		<input type="hidden" name="action"	value="getOne_For_Update"></FORM>
+
+#Back-end Servlet control 
+     if ("getOne_For_Display".equals(action)) { 
+			  //*
+			  code here  
+			  */
+			  }
+			  
+#ADD TRY/CATCH with   
+try {
+     //*code here */
+			} catch (Exception e) {
+     //code here */
+			}
+		}
+		
+#GET VO 
+       NewsService newsSvc = new NewsService();
+       NewsVO newsVO =newsSvc.getOneNews(newsno);
+		   String str = req.getParameter("newsno");
+
+#Servlet set attribute  
+      req.setAttribute("newsVO", newsVO); 
+			
+#Forward 
+      String url = "/News/listOneNews.jsp";
+			RequestDispatcher successView = req.getRequestDispatcher(url); 
+			successView.forward(req, res);
+			
+#View  get attribute 
+       <%@ page contentType="text/html; charset=UTF-8"%>
+       <%@ page import="com.news.model.*"%>
+       <%
+       NewsVO newsVO = (NewsVO) request.getAttribute("newsVO"); 
+       %>
+       <html>
+       <head>
+       <P> VIEW DEMO </p>
+       </head>
+       <body>
+       <%@include file="/layouts/header.jsp"%>
+       <table border='1' bordercolor='#CCCCFF' width='600'>
+       <tr align='center' valign='middle'>
+       <td><%=newsVO.getNewsNo()%></td>
+		   <td><%=newsVO.getNewsDate()%></td>
+		   <td><%=newsVO.getNewsTitle()%></td>
+		   <td><%=newsVO.getNewsContent()%></td>
+		   <td><img width="100" height="66" src="<%=request.getContextPath()%>/Shoptest?pkid=${newsVO.newsNo}"></td>
+		   <td><%=newsVO.getNewsIdxPhotoFormat()%></td>
+       </tr>
+       </table>
+       <%@include file="/layouts/footer.jsp"%>
+       </body>
+       </html>
+
+
