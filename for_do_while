@@ -1,5 +1,5 @@
 //*for do while  
-//Compare_A  Use for & if  某情況是可以取代如下 Compare_B  for +do_while 的邏輯非常特別
+//Compare_A     for & if  某情況是可以取代如下 Compare_B  for +do_while 的邏輯非常特別
 
 //  Logic A is id is always the same if change then do something
 for (Book book : books) {                            
@@ -13,7 +13,7 @@ for (Book book : books) {
 			list.add(book.getName());                      //正常一進迴圈就要做的事
 		}
 		
-//Compare_B  Use for & do-while
+//Compare_B     for & do-while
 
 //  Logic  B is id is must get index i and i+1 to compare it is neednt work to logic A
 for (int j = 0; j < 8; j++) {
@@ -38,7 +38,7 @@ for (int j = 0; j < 8; j++) {
 				listv1.add(V);
 
 
-//Compare_Ｃ  Use for & do-while  可以取代 Compare_B 去除 do  直接進入用if 判斷即可～～
+//Compare_Ｃ     for & do-while  可以取代 Compare_B 去除 do  直接進入用if 判斷即可～～
 
 for (Book aa:listv) {
 			                                              
