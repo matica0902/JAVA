@@ -38,7 +38,6 @@
   </session-config>
 
 [Generate] ##  MUST rely on cookie and cookie-name is JSESSIONID
-
 1.In Browser:USE AJAX XMLHttpRequest method by GET|POST
 var http = new XMLHttpRequest();
 var url = "http://localhost:8081/YB102/Prohtml/session01.jsp";
