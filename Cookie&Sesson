@@ -59,7 +59,7 @@ when client don't support cookies use URL Rewriting to store the sessionid in UR
 [Id]
 1.IT will have Default JSESSIONID
 
-2.Use cookie to cover J cookie with named "SESSIONID"
+2.Use cookie to cover the cookie with named "SESSIONID"
 <%Cookie cookie = new Cookie ("JSESSIONID", "randomValue");
 cookie.setMaxAge( 0 );
 %>
@@ -79,7 +79,7 @@ public static HttpSession resetSessionId(HttpSession session,
 2.Session is store at server(session lifecycle) more security than store on browser.
 3.Session hold the same seeionId with "Fix Browser" but differen new windows can inher its father Browser. 
 4.Session can dont rely on cookie if client dont allow.
-5.Session cant load by Browser directly must use XMLHttpRequest or must load in backend script.
+5.Session cant load by Browser directly or must use XMLHttpRequest or must load in backend script.
 
 
 
