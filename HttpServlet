@@ -34,6 +34,7 @@ successView.forward(req, res);
         <input type="text" name="newsno">
         <input type="submit" value="送出">
         <input type="hidden" name="action" value="getOne_For_Display">
+      //＃＃＃Tips :This is bad example that name="action" .The word "action" is like perserve word in javascrip with FORM 
     </FORM>
     
 2.Get
