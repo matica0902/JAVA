@@ -21,9 +21,9 @@
 
 #david-198@qoo.com.tw         =>E-mail example
 
-#[^a]                         =>inspite of a and all others character can appear
+#[^a]                         =>exclusive of a and all others character can appear
 
-#^d + . + @+ . +    com$      =>inspite of d & anything & @ & end with com
+#^d + . + @+ . +    com$      =>exclusive of d & anything & @ & end with com
 
 #H121838780            =>ID
 
