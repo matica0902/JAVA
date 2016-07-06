@@ -1,0 +1,47 @@
+#apple => seperate symble |
+[a]==a
+[a|b|c]==a~c
+[a|b|c|....Z]==a~z
+[[:alpha:]]
+
+#[a-z][a-z][a-z][a-z][a-z] =>It is too stupid to write 5 times ~
+[a-z]{5} 
+
+#apple,book,cat    =>there are n character of list of {a,b,c,...,z}
+[a-z]{3,5}   
+
+#[a-z]*  =>appears more than 0 time 
+
+#[a-z]+  =>appears at last one time
+
+#[a-z]?  =>can appears or not
+
+#david238 @gamil  .  com     =>E-mail example 
+[a-z0-9]+@[a-z]+[.][a-z]+
+
+#david-198@qoo.com.tw         =>E-mail example
+
+#[^a]                         =>inspite of a and all others character can appear
+
+#^d + . + @+ . +    com$      =>inspite of d & anything & @ & end with com
+
+#H121838780            =>ID
+
+#[a-z][1|2][0-9]{8}    =>ID dont limit at head and the end
+
+#^[a-a][1-2][0-9]{8}$  =>ID limit the head ^a  and the end must with 8
+
+#4-123456789012345     =>credit card 
+
+#[4|5][0-9]{15}        =>head of 4 or 5 and no limit with the number of the end
+
+#^[4|5][0-9[{15}$      =>limit the head number ^4|5 and must end with number of the set{1,2,3,...,9} 
+
+#[0912-345678] [0912345678] [0912-345-678] => 3 type of telephone no.
+[0-9]{4}-?[0-9]{3}-?[0-9]{3}$ 
+=>head 4 number is 0-9 &can have "-" or dont have & three number from 0-9 & can have "-" or dont have &end with number from0-9       
+
+ 
+
+
+
