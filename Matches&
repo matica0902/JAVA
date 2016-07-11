@@ -9,3 +9,9 @@ Method B
 String input = "I have a cat, but I like my dog better.";
 Pattern p = Pattern.compile("(mouse|cat|dog|wolf|bear|human)");
 Matcher m = p.matcher(input);
+
+
+String string = "004-034556-42";
+String[] parts = string.split("-", 2);
+String part1 = parts[0]; // 004
+String part2 = parts[1]; // 034556-42
