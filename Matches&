@@ -1,4 +1,5 @@
 Method A
+##matches() method it return a boolean value
 input.add("192-83-7465");
 for (String ssn : input) {
 ssn.matches("^(\\d{3}-?\\d{2}-?\\d{4})$"
@@ -6,11 +7,18 @@ ssn.matches("^(\\d{3}-?\\d{2}-?\\d{4})$"
 
 
 Method B
+#A typical invocation sequence is below
+
+ Pattern p = Pattern.compile("a*b");
+ Matcher m = p.matcher("aaaaab");
+ boolean b = m.matches();
+
+#A example
 String input = "I have a cat, but I like my dog better.";
 Pattern p = Pattern.compile("(mouse|cat|dog|wolf|bear|human)");
 Matcher m = p.matcher(input);
 
-
+#it is different from split() method
 String string = "004-034556-42";
 String[] parts = string.split("-", 2);
 String part1 = parts[0]; // 004
