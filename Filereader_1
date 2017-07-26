@@ -18,7 +18,22 @@
 			}
 	bbw = br.readLine();
 	
-	//*conclusion seem has no different 
+	//*compare A,B seem has no different 
 	   but must add "bbw = br.readLine();" two times;
+	   
+	   
+	   
+	   
+	   
+	//Compare_C Normal skill  
+	   
+	   do{
+         // 3. 接著 一行一行 的把資料從檔案中讀出來
+            data=BufferedStream.readLine();
+         // 4. 當讀取到最後一行後,
+            if(data==null)
+                break;          // 讀到檔案結束
+           System.out.println(data);
+        } while(true);      
 		
 		
