@@ -1,0 +1,163 @@
+STEP1 DAO_Interface --->create interface
+STEP2 DAO   --->Impletment interface method(And use JNDI) EX:insert update delete
+STEP3 JVO   --->JAVA VO for set active variable instance for rs to html variable.
+
+EX:
+STEP1========DAO_Interface=================>
+package com.news.model;
+
+import java.util.List;
+
+public interface NewDAO_interface {
+	public int insert(NewsVO newsVO);
+	public int update(NewsVO newsVO);
+	public int delete (Integer newsNo);
+	public NewsVO findBYPrimaryKey(Integer newsNo);
+	public List<NewsVO> getAll();
+	
+}
+
+
+
+STEP2========DAO=================>
+package com.news.model;
+import java.util.*;
+import java.sql.*;
+import java.sql.Date;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+
+public class NewsDAO implements NewDAO_interface{
+	
+	private static DataSource ds = null;
+	static {
+		try {
+			
+			
+			Context ctx = new InitialContext();
+			ds = (DataSource) ctx.lookup("java:comp/env/jdbc/G3");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+		
+
+		private static final String INSERT_STMT = 
+			"INSERT INTO news (newsNo,newsDate,newstitle,newsContent,newsIdxPhoto,newsIdxPhotoFormat) VALUES (news_seq.NEXTVAL, ?, ?, ?, ?, ?)";
+
+
+		@Override
+//  傳入 因為是要新增故傳入已設定好的勿件 VO 		
+		public int insert(NewsVO newsVO){
+//宣告    連線 , sql 等物件初值為 null			
+			int updateCount = 0;
+			Connection con = null;
+			PreparedStatement pstmt = null;//在此使用pstmt 是另一種效率更高的 PreparedSratement ~~
+
+			try {
+ //宣告 Driver 連線  sql  等物件初值
+		//		Class.forName(driver);
+		// = DriverManager.getConnection(url, userid, passwd);
+				con = ds.getConnection();
+				
+				pstmt = con.prepareStatement(INSERT_STMT);//其實本已經寫好 只是宣告完後再用
+				                                                                       //pstmt.setString(1, empVO.getMsgNo());一個一個設定與修改SQL要得參數~~
+// 設訂 sql 語法中變數值  關健  pstmt.ser"型態"("?順序位置",設定值)
+// 例如       pstmt.setInt pstmt.setDate pstmt.setBytes pstmt.setString				
+				//pstmt.setInt(1, newsVO.getNewsNo());
+				pstmt.setDate(1, newsVO.getNewsDate());//pstmt設定第二個位置 資料由empVO取得
+				pstmt.setString(2, newsVO.getNewsTitle());
+				pstmt.setString(3, newsVO.getNewsContent());
+				pstmt.setBytes(4, newsVO.getNewsIdxPhoto());
+				pstmt.setString(5, newsVO.getNewsIdxPhotoFormat());
+		//執行並傳回 值	
+				updateCount = pstmt.executeUpdate();//執行SQL指令executeUpdate()並回傳 0或1 顯示成功與否
+
+				// 尚不清楚 
+		//	} catch (ClassNotFoundException e) {
+		//		throw new RuntimeException("Couldn't load database driver. "
+		//				+ e.getMessage());
+				// Handle any SQL errors
+			} catch (SQLException se) {
+				throw new RuntimeException("A database error occured. "
+						+ se.getMessage());
+				// Clean up JDBC resources
+			} finally {
+				
+		//關閉連線		
+				if (pstmt != null) {
+					try {
+						pstmt.close();
+					} catch (SQLException se) {
+						se.printStackTrace(System.err);
+					}
+				}
+				if (con != null) {
+					try {
+						con.close();
+					} catch (Exception e) {
+						e.printStackTrace(System.err);
+					}
+				}
+			}
+			return updateCount;
+		}
+ 
+ 
+ 
+ 
+ STEP3==========JAVAVO===============>
+  public class NewsVO {
+	private Integer  newsNo;
+	private Date newsDate	;
+	private String newsTitle	;	
+	private  String newsContent ;		
+	private  byte[] newsIdxPhoto ;	
+	private  String newsIdxPhotoFormat;
+	public Integer getNewsNo() {
+		return newsNo;
+	}
+	public void setNewsNo(Integer newsNo) {
+		this.newsNo = newsNo;
+	}
+	public Date getNewsDate() {
+		return newsDate;
+	}
+	public void setNewsDate(Date newsDate) {
+		this.newsDate = newsDate;
+	}
+	public String getNewsTitle() {
+		return newsTitle;
+	}
+	public void setNewsTitle(String newsTitle) {
+		this.newsTitle = newsTitle;
+	}
+	public String getNewsContent() {
+		return newsContent;
+	}
+	public void setNewsContent(String newsContent) {
+		this.newsContent = newsContent;
+	}
+	public byte[] getNewsIdxPhoto() {
+		return newsIdxPhoto;
+	}
+	public void setNewsIdxPhoto(byte[] newsIdxPhoto) {
+		this.newsIdxPhoto = newsIdxPhoto;
+	}
+	public String getNewsIdxPhotoFormat() {
+		return newsIdxPhotoFormat;
+	}
+	public void setNewsIdxPhotoFormat(String newsIdxPhotoFormat) {
+		this.newsIdxPhotoFormat = newsIdxPhotoFormat;
+	}
+	   
+
+}
+
+
