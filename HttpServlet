@@ -26,6 +26,8 @@ String str = req.getParameter("mesno")
 RequestDispatcher successView = req.getRequestDispatcher(url);
 successView.forward(req, res);
 
+##Here RequestDispatcher 的 forward 方法 可以將資源傳送到指定的JSP 或 servlet 與HTML目的地由req.getRequestdispatcher(url)設定
+
 
 ##Request from client form get & post
 1.Post 
