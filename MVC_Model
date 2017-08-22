@@ -163,6 +163,10 @@ public class NewsDAO implements NewDAO_interface{
 }
 
 
+
+	
+STEP4==========DoService===============>
+
 package com.news.model;
 
 import java.util.List;
@@ -194,4 +198,3 @@ public class NewsService {
 
 		return newsVO;
 	}
-STEP4==========DoService===============>
