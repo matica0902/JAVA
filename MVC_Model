@@ -1,6 +1,8 @@
 STEP1 DAO_Interface --->create interface
 STEP2 DAO   --->Impletment interface method(And use JNDI) EX:insert update delete
 STEP3 JVO   --->JAVA VO for set active variable instance for rs to html variable.
+AND AFTER ABOVE 3 STEPS you can do some sevice with your data take from DAO model of database.
+STEP4 DoService  --->Impletment some code to 
 
 EX:
 STEP1========DAO_Interface=================>
@@ -161,3 +163,35 @@ public class NewsDAO implements NewDAO_interface{
 }
 
 
+package com.news.model;
+
+import java.util.List;
+
+import com.news.model.NewsDAO;
+import com.news.model.NewDAO_interface;
+import com.news.model.NewsVO;
+
+public class NewsService {
+
+	private NewDAO_interface dao;
+
+	public NewsService() {
+		dao = new NewsDAO();
+	}
+
+	public NewsVO addNews(java.sql.Date NewsDate,
+			String newsTitle, String newsContent, byte[] newsIdxPhoto,String newsIdxPhotoFormat) {
+
+		NewsVO newsVO = new NewsVO();
+
+		
+		newsVO.setNewsDate(NewsDate);
+		newsVO.setNewsTitle(newsTitle);
+		newsVO.setNewsContent(newsContent);
+		newsVO.setNewsIdxPhoto(newsIdxPhoto);
+		newsVO.setNewsIdxPhotoFormat(newsIdxPhotoFormat);
+		dao.insert(newsVO);
+
+		return newsVO;
+	}
+STEP4==========DoService===============>
