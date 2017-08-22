@@ -1,3 +1,9 @@
+manage with session
+
+4個介面 兩個事件來追蹤SESSION 本身
+如何被啟動製造綁定與削去~~
+
+
 ##COOKIE
 [Life-cycle]
 1.ck.setMaxAge(65536);custom
